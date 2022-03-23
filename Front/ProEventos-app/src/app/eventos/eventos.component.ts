@@ -32,7 +32,7 @@ export class EventosComponent implements OnInit {
     return this.eventos.filter(
       //     tem outra definicao aula 48 para abreviar (deixei assim pra poder adicionar mais propriedades pra busca)
       (      evento: any) => evento.tema.toLocaleLowerCase().indexOf(filtrarPor)!== -1 ||
-                             evento.local.toLocaleLowerCase().indexOf(filtrarPor)!== -1 
+                             evento.local.toLocaleLowerCase().indexOf(filtrarPor)!== -1
     )
    }
   constructor(private http: HttpClient ) { }
