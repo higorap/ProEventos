@@ -2,6 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain;
+using ProEventos.Persistence.Contexto;
 using ProEventos.Persistence.Contratos;
 
 namespace ProEventos.Persistence
@@ -25,7 +26,7 @@ namespace ProEventos.Persistence
 
         public async Task<Palestrante[]> GetAllPalestranteAsync(bool IncludeEventos =false)
         {
-           IQueryable<Palestrante> query = _context.Palestrantes
+           IQueryable<Palestrante> query = _context.Palestrantes.AsNoTracking()
            .Include(e=>e.RedesSociais);
            if (IncludeEventos)
            {
@@ -39,7 +40,7 @@ namespace ProEventos.Persistence
 
         public async Task<Palestrante[]> GetAllPalestranteByNomeAsync(string nome,bool IncludeEventos)
         {
-            IQueryable<Palestrante> query = _context.Palestrantes
+            IQueryable<Palestrante> query = _context.Palestrantes.AsNoTracking()
            .Include(p=>p.RedesSociais);
            if (IncludeEventos)
            {
@@ -53,7 +54,7 @@ namespace ProEventos.Persistence
 
         public async Task<Palestrante[]> GetAllPalestranteByNomeIdAsync(string nome, bool IncludeEventos)
         {
-           IQueryable<Palestrante> query = _context.Palestrantes
+           IQueryable<Palestrante> query = _context.Palestrantes.AsNoTracking()
            .Include(e=>e.RedesSociais);
            if (IncludeEventos)
            {
@@ -67,7 +68,7 @@ namespace ProEventos.Persistence
 
         public async Task<Palestrante[]> GetAllPalestranteByIdAsync(string Nome, bool IncludeEventos)
         {
-            IQueryable<Palestrante>query = _context.Palestrantes
+            IQueryable<Palestrante>query = _context.Palestrantes.AsNoTracking()
             .Include(p=>p.RedesSociais);
             if(IncludeEventos)
 
@@ -82,7 +83,7 @@ namespace ProEventos.Persistence
 
         public async Task<Palestrante> GetAllPalestranteByIdAsyn2c(int PalestranteId, bool IncludeEventos)
         {
-            IQueryable<Palestrante>query = _context.Palestrantes
+            IQueryable<Palestrante>query = _context.Palestrantes.AsNoTracking()
             .Include(p=>p.RedesSociais);
             if(IncludeEventos)
 

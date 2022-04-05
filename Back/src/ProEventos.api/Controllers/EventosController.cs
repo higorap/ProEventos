@@ -8,6 +8,7 @@ using ProEventos.Persistence;
 using ProEventos.Domain;
 using ProEventos.Persistence.Contratos;
 using Microsoft.AspNetCore.Http;
+using ProEventos.Persistence.Contexto;
 
 namespace ProEventos.api.Controllers
 {
@@ -16,8 +17,15 @@ namespace ProEventos.api.Controllers
     public class EventosController : ControllerBase
     {
 
+      //  // essa 
+        // public readonly ProEventosContext _context;
+        // public EventosController(ProEventosContext context)
+        // {
+        //     _context = context;
 
-        private readonly IEventoService _eventoService;
+        // }
+      //   //fim
+        private  IEventoService _eventoService;
 
         public EventosController(IEventoService eventoService)
         {
@@ -26,7 +34,7 @@ namespace ProEventos.api.Controllers
         }
 
         [HttpGet]
-        public async Task <IActionResult> Get()
+        public async Task <IActionResult> Get() //aulas 68
         {
             try
             {
@@ -38,7 +46,7 @@ namespace ProEventos.api.Controllers
             catch (Exception falha)
             {
                 
-               return this.StatusCode(StatusCodes.Status500InternalServerError,$"Erro au tentar Recuperar evento . Erro {falha.Message}");
+               return this.StatusCode(StatusCodes.Status500InternalServerError,$"Erro au tentar Recuperar evento1 . Erro {falha.Message}");
             }
         }
         [HttpGet("{id}")]
@@ -46,7 +54,7 @@ namespace ProEventos.api.Controllers
         {
             try
             {
-               var eventos = await _eventoService.GetAllEventosByIdAsync(id,true);
+               var eventos = await _eventoService.GetEventoByIdAsync(id,true);
                if (eventos ==null) return NotFound("Nenhum evento encontrado") ;
                return Ok(eventos);
                
@@ -54,7 +62,7 @@ namespace ProEventos.api.Controllers
             catch (Exception falha)
             {
                 
-               return this.StatusCode(StatusCodes.Status500InternalServerError,$"Erro au tentar Recuperar evento . Erro {falha.Message}");
+               return this.StatusCode(StatusCodes.Status500InternalServerError,$"Erro au tentar Recuperar evento2 . Erro {falha.Message}");
             }
         }
         [HttpGet("{tema}/tema")]
@@ -70,7 +78,7 @@ namespace ProEventos.api.Controllers
             catch (Exception falha)
             {
                 
-               return this.StatusCode(StatusCodes.Status500InternalServerError,$"Erro au tentar Recuperar evento . Erro {falha.Message}");
+               return this.StatusCode(StatusCodes.Status500InternalServerError,$"Erro au tentar Recuperar evento3 . Erro {falha.Message}");
             }
         }
 
@@ -87,7 +95,7 @@ namespace ProEventos.api.Controllers
             catch (Exception falha)
             {
                 
-               return this.StatusCode(StatusCodes.Status500InternalServerError,$"Erro au tentar Recuperar evento . Erro {falha.Message}");
+               return this.StatusCode(StatusCodes.Status500InternalServerError,$"Erro au tentar Recuperar evento4 . Erro {falha.Message}");
             }
         }
          [HttpPut("{id}")]
@@ -103,7 +111,7 @@ namespace ProEventos.api.Controllers
             catch (Exception falha)
             {
                 
-               return this.StatusCode(StatusCodes.Status500InternalServerError,$"Erro au tentar Recuperar evento . Erro {falha.Message}");
+               return this.StatusCode(StatusCodes.Status500InternalServerError,$"Erro au tentar Recuperar evento5 . Erro {falha.Message}");
             }
         }
          [HttpDelete("{id}")]
