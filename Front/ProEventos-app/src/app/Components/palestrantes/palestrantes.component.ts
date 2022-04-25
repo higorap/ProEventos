@@ -21,19 +21,6 @@ export class PalestrantesComponent implements OnInit {
       response=> this.eventos=response,
       error => console.log(error)
     );
-  //   this.eventos =[
-  //     {
-  //     Nome:'Angular',
-  //     Local:'SP'
-  //   },
-  //   {
-  //     Nome:'baixinha',
-  //     Local:'Casa longe da minha'
-  //   },
-  //   {
-  //     Nome:'Higor',
-  //     Local:'Casa'
-  //   }
-  // ]
+  
   }
 }

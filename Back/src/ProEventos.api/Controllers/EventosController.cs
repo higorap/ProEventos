@@ -39,7 +39,7 @@ namespace ProEventos.api.Controllers
             try
             {
                var eventos = await _eventoService.GetAllEventosAsync(true);
-               if (eventos ==null) return NotFound("Nenhum evento encontrado") ;
+               if (eventos ==null) return NotFound("Nenhum evento encontrado2") ;
                return Ok(eventos);
                
             }
@@ -55,7 +55,7 @@ namespace ProEventos.api.Controllers
             try
             {
                var eventos = await _eventoService.GetEventoByIdAsync(id,true);
-               if (eventos ==null) return NotFound("Nenhum evento encontrado") ;
+               if (eventos ==null) return NotFound("Nenhum evento encontrado1") ;
                return Ok(eventos);
                
             }
